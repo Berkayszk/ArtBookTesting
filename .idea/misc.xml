@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/activity_main.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/art_row.xml" value="0.24572649572649571" />
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/fragment_art_details.xml" value="0.2586050724637681" />
         <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/fragment_arts.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/fragment_image_api.xml" value="0.244017094017094" />
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/image_row.xml" value="0.2586050724637681" />
+        <entry key="..\:/Users/berka/AndroidStudioProjects/ArtBookTesting/app/src/main/res/layout/itom_row.xml" value="0.2586050724637681" />
       </map>
     </option>
   </component>
