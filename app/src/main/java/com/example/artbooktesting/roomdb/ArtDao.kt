@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface ArtDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(art : Art)
+    suspend fun insertArt(art : Art)
 
     @Delete
     suspend fun delete(art: Art)

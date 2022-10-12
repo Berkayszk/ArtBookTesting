@@ -15,7 +15,7 @@ class ArtRepository @Inject constructor(
 
     ) : ArtRepositoryInterface {
     override suspend fun insertArt(art: Art) {
-        artDao.insertAll(art)
+        artDao.insertArt(art)
     }
 
     override suspend fun deleteArt(art: Art) {
