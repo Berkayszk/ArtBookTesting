@@ -5,7 +5,7 @@ import com.example.artbooktesting.Util.Resource
 import com.example.artbooktesting.model.ImageResponse
 import com.example.artbooktesting.roomdb.Art
 
-interface ArtRepositoryInferface {
+interface ArtRepositoryInterface {
     suspend fun insertArt (art: Art)
 
     suspend fun deleteArt(art: Art)

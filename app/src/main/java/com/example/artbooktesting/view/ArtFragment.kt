@@ -21,6 +21,7 @@ class ArtFragment @Inject constructor(
     private var fragmentBinding : FragmentArtsBinding? = null
     lateinit var viewModel : ArtViewModel
 
+    //Delete Progress
     private val swipeCallBack = object : ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
         override fun onMove(
             recyclerView: RecyclerView,

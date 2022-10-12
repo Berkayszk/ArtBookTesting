@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import com.example.artbooktesting.Util.Resource
 import com.example.artbooktesting.api.RetrofitAPI
 import com.example.artbooktesting.model.ImageResponse
-import com.example.artbooktesting.model.ImageResult
 import com.example.artbooktesting.roomdb.Art
 import com.example.artbooktesting.roomdb.ArtDao
 import java.lang.Exception
@@ -14,7 +13,7 @@ class ArtRepository @Inject constructor(
     private val artDao: ArtDao,
     private val retrofitAPI: RetrofitAPI
 
-    ) : ArtRepositoryInferface {
+    ) : ArtRepositoryInterface {
     override suspend fun insertArt(art: Art) {
         artDao.insertAll(art)
     }
