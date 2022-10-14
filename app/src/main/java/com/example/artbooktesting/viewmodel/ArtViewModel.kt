@@ -57,7 +57,8 @@ class ArtViewModel @Inject constructor(
         val yearInt = try {
             year.toInt()
         } catch (e: Exception) {
-            insertArtMsg.postValue(Resource.error("Year should be number",null))
+            println(e)
+            insertArtMsg.postValue(Resource.error("Year should be number just ok",null))
             return
         }
 

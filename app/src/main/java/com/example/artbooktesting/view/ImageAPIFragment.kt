@@ -65,7 +65,7 @@ class ImageAPIFragment @Inject constructor(
                     fragmentBinding?.progressBar?.visibility = View.GONE
                 }
                 Status.LOADING ->{
-                    Toast.makeText(requireContext(), it.message ?: "Error!!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), it.message ?: "Loading...", Toast.LENGTH_SHORT).show()
                     fragmentBinding?.progressBar?.visibility = View.VISIBLE
                 }
                 Status.ERROR ->{

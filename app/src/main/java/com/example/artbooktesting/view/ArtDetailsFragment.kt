@@ -15,8 +15,10 @@ import com.example.artbooktesting.Util.Status
 import com.example.artbooktesting.databinding.FragmentArtDetailsBinding
 import com.example.artbooktesting.databinding.FragmentArtsBinding
 import com.example.artbooktesting.viewmodel.ArtViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ArtDetailsFragment @Inject constructor(
     val glide : RequestManager
 ) : Fragment(R.layout.fragment_art_details) {
@@ -25,11 +27,11 @@ class ArtDetailsFragment @Inject constructor(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        subscribeToObservers()
+
         viewModel = ViewModelProvider(requireActivity()).get(ArtViewModel::class.java)
         val binding = FragmentArtDetailsBinding.bind(view)
         fragmentBinding = binding
-
+        subscribeToObservers()
         binding.artImageView.setOnClickListener{
             findNavController().navigate(ArtDetailsFragmentDirections.actionArtDetailsFragmentToImageAPIFragment())
         }
@@ -43,9 +45,11 @@ class ArtDetailsFragment @Inject constructor(
         binding.saveButton.setOnClickListener {
             viewModel.makeArt(binding.artistName.text.toString(),binding.nameText.text.toString(),binding.yearText.toString())
         }
+
     }
     private fun subscribeToObservers(){
         viewModel.selectedImageUrl.observe(viewLifecycleOwner, Observer { url ->
+            print(url)
             fragmentBinding?.let {
                 glide.load(url).into(it.artImageView)
             }
