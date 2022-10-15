@@ -17,11 +17,12 @@ import com.example.artbooktesting.Util.Status
 import com.example.artbooktesting.adapter.ImageRecyclerAdapter
 import com.example.artbooktesting.databinding.FragmentImageApiBinding
 import com.example.artbooktesting.viewmodel.ArtViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
+@AndroidEntryPoint
 class ImageAPIFragment @Inject constructor(
     private val imageRecyclerAdapter: ImageRecyclerAdapter
 ): Fragment(R.layout.fragment_image_api) {
@@ -55,7 +56,7 @@ class ImageAPIFragment @Inject constructor(
             viewModel.setSelectedImage(it)
         }
     }
-    fun subscribeToObservers(){
+    private fun subscribeToObservers(){
         viewModel.imageList.observe(viewLifecycleOwner, Observer {
             when(it.status){
                 Status.SUCCESS -> {

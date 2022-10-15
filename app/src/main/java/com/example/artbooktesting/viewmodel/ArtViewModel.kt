@@ -11,6 +11,7 @@ import com.example.artbooktesting.roomdb.Art
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import kotlinx.coroutines.selects.whileSelect
 import javax.inject.Inject
 
 @HiltViewModel
@@ -49,16 +50,17 @@ class ArtViewModel @Inject constructor(
         repository.insertArt(art)
     }
 
-    fun makeArt(name : String, artistName : String, year : String) {
+    fun makeArt(name : String, artistName:String, year: String) {
+
         if (name.isEmpty() || artistName.isEmpty() || year.isEmpty() ) {
             insertArtMsg.postValue(Resource.error("Enter name, artist, year", null))
             return
         }
-        val yearInt = try {
+        val yearInt =try {
             year.toInt()
         } catch (e: Exception) {
-            println(e)
-            insertArtMsg.postValue(Resource.error("Year should be number just ok",null))
+            e.printStackTrace()
+            insertArtMsg.postValue(Resource.error("Year should be number..",null))
             return
         }
 

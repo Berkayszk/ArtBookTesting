@@ -24,34 +24,37 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    @Singleton
-    @Provides
-    fun injectRoomDatabase(@ApplicationContext context: Context) = Room.databaseBuilder(
-        context,ArtDatabase::class.java,"ArtBookDatabase").build()
-    @Singleton
-    @Provides
-    fun injectDao(database: ArtDatabase) = database.artDao()
 
     @Singleton
     @Provides
+    fun injectRoomDatabase(
+        @ApplicationContext context: Context
+    ) = Room.databaseBuilder(context,ArtDatabase::class.java,"ArtBookDB").build()
 
-    fun injectRetrofitAPI() : RetrofitAPI{
+    @Singleton
+    @Provides
+    fun injectDao(
+        database: ArtDatabase
+    ) = database.artDao()
+
+    @Singleton
+    @Provides
+    fun injectRetrofitAPI() : RetrofitAPI {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(BASE_URL)
-            .build()
-            .create(RetrofitAPI::class.java)
+            .baseUrl(BASE_URL).build().create(RetrofitAPI::class.java)
     }
 
     @Singleton
     @Provides
-    fun injectNormalRepo(dao : ArtDao, api:RetrofitAPI) = ArtRepository(dao,api) as ArtRepositoryInterface
+    fun injectNormalRepo(dao : ArtDao, api: RetrofitAPI) = ArtRepository(dao,api) as ArtRepositoryInterface
 
     @Singleton
     @Provides
-    fun injectGlide(@ApplicationContext context: Context) = Glide.with(context)
-        .setDefaultRequestOptions(
-                RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
-                    .error(R.drawable.ic_launcher_foreground)
+    fun injectGlide(@ApplicationContext context: Context) = Glide
+        .with(context).setDefaultRequestOptions(
+            RequestOptions().placeholder(R.drawable.ic_launcher_foreground)
+                .error(R.drawable.ic_launcher_foreground)
         )
+
 }
