@@ -43,7 +43,7 @@ class ArtDetailsFragment @Inject constructor(
         requireActivity().onBackPressedDispatcher.addCallback(callBack)
 
         binding.saveButton.setOnClickListener {
-            viewModel.makeArt(binding.artistName.text.toString(),binding.nameText.text.toString(),binding.yearText.toString())
+            viewModel.makeArt(binding.artistName.text.toString(),binding.nameText.text.toString(),binding.yearText.text.toString())
         }
 
     }

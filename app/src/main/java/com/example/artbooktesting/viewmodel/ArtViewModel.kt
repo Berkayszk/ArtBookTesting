@@ -11,7 +11,6 @@ import com.example.artbooktesting.roomdb.Art
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
-import kotlinx.coroutines.selects.whileSelect
 import javax.inject.Inject
 
 @HiltViewModel
@@ -46,7 +45,7 @@ class ArtViewModel @Inject constructor(
         repository.deleteArt(art)
     }
 
-    fun insertArt(art: Art) = viewModelScope.launch {
+    private fun insertArt(art: Art) = viewModelScope.launch {
         repository.insertArt(art)
     }
 
